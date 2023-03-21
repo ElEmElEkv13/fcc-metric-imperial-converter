@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 
 suite('Functional Tests', function () {
   test('Convert a valid input', () => {
-    input = '10L';
+    const input = '10L';
     chai
       .request(server)
       .get('/api/convert')
@@ -21,7 +21,7 @@ suite('Functional Tests', function () {
       });
   });
   test('Convert an invalid input', () => {
-    input = '32g';
+    const input = '32g';
     chai
       .request(server)
       .get('/api/convert')
@@ -32,7 +32,7 @@ suite('Functional Tests', function () {
       });
   });
   test('Convert an invalid number', () => {
-    input = '3/7.2/4kg';
+    const input = '3/7.2/4kg';
     chai
       .request(server)
       .get('/api/convert')
@@ -43,7 +43,7 @@ suite('Functional Tests', function () {
       });
   });
   test('Convert an invalid number AND unit', () => {
-    input = '3/7.2/4kilomegagram';
+    const input = '3/7.2/4kilomegagram';
     chai
       .request(server)
       .get('/api/convert')
@@ -55,7 +55,7 @@ suite('Functional Tests', function () {
       });
   });
   test('Convert with no number such', () => {
-    input = 'kg';
+    const input = 'kg';
     chai
       .request(server)
       .get('/api/convert')
