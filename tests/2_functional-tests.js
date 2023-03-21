@@ -28,7 +28,7 @@ suite('Functional Tests', function () {
       .query({ input })
       .end((err, res) => {
         assert.equal(res.status, 200);
-        assert.equal(res.body.initUnit, undefined);
+        assert.equal(res.text, 'invalid unit');
       });
   });
   test('Convert an invalid number', () => {
@@ -39,7 +39,7 @@ suite('Functional Tests', function () {
       .query({ input })
       .end((err, res) => {
         assert.equal(res.status, 200);
-        assert.equal(res.body.initUnit, undefined);
+        assert.equal(res.text, 'invalid number');
       });
   });
   test('Convert an invalid number AND unit', () => {
@@ -50,7 +50,7 @@ suite('Functional Tests', function () {
       .query({ input })
       .end((err, res) => {
         assert.equal(res.status, 200);
-        assert.equal(res.body.initNum, undefined);
+        assert.equal(res.text, 'invalid number and unit');
         assert.equal(res.body.initUnit, undefined);
       });
   });
